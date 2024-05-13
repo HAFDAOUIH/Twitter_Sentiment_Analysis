@@ -32,20 +32,26 @@ This project analyzes real-time Twitter data to determine sentiment (positive, n
 ### Installation
 
 1. **Clone the Repository:**
-  ```bash
+  
   git clone https://github.com/YOUR_GITHUB_USERNAME/Twitter_Sentiment_Analysis.git
   cd Twitter_Sentiment_Analysis
   
   # Install Python Dependencies:
+  ```bash
   pip install -r requirements.txt
+  ```
   
   # Set Up Kafka and Zookeeper:
   
   # Start Zookeeper:
+  ```bash
   docker run -d --name zookeeper -p 2181:2181 zookeeper:3.4.14
+  ```
   
   # Start Kafka:
+  ```bash
   docker run -d --name kafka -p 9092:9092 --link zookeeper:zookeeper wurstmeister/kafka:2.12-2.2.1
+  ```
   
   # Prepare the Kafka Container with Producer.py and Data:
   # You'll need to copy Producer.py and twitter_validation.csv into your kafka1 Docker container.
@@ -54,22 +60,29 @@ This project analyzes real-time Twitter data to determine sentiment (positive, n
   #   - Mounting Volumes: Mount a volume from your host machine that contains the files into the kafka1 container.
   
   # Build the Producer Docker Image:
+  ```bash
   docker build -t twitter-producer ./Producer
+  ```
   
   # Run the Producer Container:
   # Make sure the kafka1 container is running.
   # Run the producer container, mounting kafka1's volumes to access the files:
+  ```bash
   docker run -it --rm --name twitter-producer-container --volumes-from kafka1 twitter-producer
+  ```
   
   # Start the Spark Consumer:
   # Open a new terminal and navigate to the Consumer directory.
   # Execute Consumer.py using Spark:
-  spark-submit --packages org.apache.spark:spark-streaming-kafka-0-10_2.12:3.0.0 ./Consumer.py
-
+  ```bash
+  python3 Consumer.py
+  ```
  # Run the Streamlit Web App:
  # Open another terminal and navigate to the WebApp directory.
  # Run the Streamlit app:
+ ```bash
  streamlit run main.py
+```
   ### Usage
 
 The producer (running inside the kafka1 container) continuously streams Twitter data from the `twitter_validation.csv` file into a Kafka topic. The Spark consumer subscribes to the Kafka topic, analyzes tweet sentiment using a pre-trained Logistic Regression model, and stores the results in MongoDB. The Streamlit web app visualizes the sentiment analysis data retrieved from MongoDB.
