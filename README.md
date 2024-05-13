@@ -54,10 +54,10 @@ This project analyzes real-time Twitter data to determine sentiment (positive, n
   ```
   
   #### Prepare the Kafka Container with Producer.py and Data:
-  #### You'll need to copy Producer.py and twitter_validation.csv into your kafka1 Docker container.
-  #### The exact method for doing this might vary depending on your setup, but here are two common approaches:
-  ####   - Using docker cp: Copy the files from your host machine to the container.
-  ####   - Mounting Volumes: Mount a volume from your host machine that contains the files into the kafka1 container.
+   You'll need to copy Producer.py and twitter_validation.csv into your kafka1 Docker container.
+   The exact method for doing this might vary depending on your setup, but here are two common approaches:
+    - Using docker cp: Copy the files from your host machine to the container.
+    - Mounting Volumes: Mount a volume from your host machine that contains the files into the kafka1 container.
   
   #### Build the Producer Docker Image:
   ```bash
@@ -65,21 +65,21 @@ This project analyzes real-time Twitter data to determine sentiment (positive, n
   ```
   
   #### Run the Producer Container:
-  #### Make sure the kafka1 container is running.
-  #### Run the producer container, mounting kafka1's volumes to access the files:
+   Make sure the kafka1 container is running.
+   Run the producer container, mounting kafka1's volumes to access the files:
   ```bash
   docker run -it --rm --name twitter-producer-container --volumes-from kafka1 twitter-producer
   ```
   
   #### Start the Spark Consumer:
-  #### Open a new terminal and navigate to the Consumer directory.
-  #### Execute Consumer.py using Spark:
+   Open a new terminal and navigate to the Consumer directory.
+   Execute Consumer.py using Spark:
   ```bash
   python3 Consumer.py
   ```
  #### Run the Streamlit Web App:
- #### Open another terminal and navigate to the WebApp directory.
- #### Run the Streamlit app:
+  Open another terminal and navigate to the WebApp directory.
+  Run the Streamlit app:
  ```bash
  streamlit run main.py
 ```
