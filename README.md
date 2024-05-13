@@ -46,7 +46,7 @@ This project analyzes real-time Twitter data to determine sentiment (positive, n
 
 1. **Clone the Repository:**
   
-  git clone https://github.com/YOUR_GITHUB_USERNAME/Twitter_Sentiment_Analysis.git
+  git clone https://github.com/HAFDAOUIH/Twitter_Sentiment_Analysis.git
   cd Twitter_Sentiment_Analysis
   
   #### Install Python Dependencies:
