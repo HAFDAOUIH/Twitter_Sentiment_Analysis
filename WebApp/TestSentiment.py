@@ -11,7 +11,7 @@ import datetime
 client = MongoClient("mongodb://localhost:27017")
 database = client["TwitterSentimentAnalysis"]
 collection = database["UserResults"]
-model_dir = 'Pretrained_LogisticRegression.pkl'
+model_dir = '../Pretrained_LogisticRegression.pkl'
 
 positive_tweets = []
 negative_tweets = []
@@ -34,7 +34,7 @@ def test_sentiment():
     display_tweets()
     if submit:
         st.header("")
-        st.markdown("<h3 style='color: #F63366;'>Sentiment Analysis Progress: Visualizing Sentiment Trends</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='color: #F63366; text-align: center;'>Sentiment Analysis Progress: Visualizing Sentiment Trends</h3>", unsafe_allow_html=True)
         st.header("")
         plot_sentiment_progress()
 
@@ -64,35 +64,35 @@ def display_tweets():
     if positive_tweets:
         with col1:
             st.subheader("")
-            st.markdown("<h3 style='color: #F63366;'>Positive Sentiment Tweets</h3>", unsafe_allow_html=True)
+            st.markdown("<h3 style='color: #F63366;text-align:center;'>Positive Sentiment Tweets</h3>", unsafe_allow_html=True)
             positive_df = pd.DataFrame(positive_tweets)
             positive_df.drop(columns='_id', inplace=True, errors='ignore')  # Drop the _id column
-            st.dataframe(positive_df)
+            st.dataframe(positive_df,width=1000)
 
     if negative_tweets:
         with col2:
             st.subheader("")
-            st.markdown("<h3 style='color: #F63366;'>Negative Sentiment Tweets</h3>", unsafe_allow_html=True)
+            st.markdown("<h3 style='color: #F63366;text-align:center;'>Negative Sentiment Tweets</h3>", unsafe_allow_html=True)
             negative_df = pd.DataFrame(negative_tweets)
             negative_df.drop(columns='_id', inplace=True, errors='ignore')  # Drop the _id column
-            st.dataframe(negative_df)
+            st.dataframe(negative_df,width=1000)
     col3, col4 = st.columns(2)
 
     if neutral_tweets:
         with col3:
             st.subheader("")
-            st.markdown("<h3 style='color: #F63366;'>Neutral Sentiment Tweets</h3>", unsafe_allow_html=True)
+            st.markdown("<h3 style='color: #F63366;text-align:center;'>Neutral Sentiment Tweets</h3>", unsafe_allow_html=True)
             neutral_df = pd.DataFrame(neutral_tweets)
             neutral_df.drop(columns='_id', inplace=True, errors='ignore')  # Drop the _id column
-            st.dataframe(neutral_df)
+            st.dataframe(neutral_df, width=1000)
 
     if irrelevant_tweets:
         with col4:
             st.subheader("")
-            st.markdown("<h3 style='color: #F63366;'>Irrelevant Sentiment Tweets</h3>", unsafe_allow_html=True)
+            st.markdown("<h3 style='color: #F63366;text-align:center;'>Irrelevant Sentiment Tweets</h3>", unsafe_allow_html=True)
             irrelevant_df = pd.DataFrame(irrelevant_tweets)
             irrelevant_df.drop(columns='_id', inplace=True, errors='ignore')  # Drop the _id column
-            st.dataframe(irrelevant_df)
+            st.dataframe(irrelevant_df, width=1000)
 
 def convert_sentiment_column(df):
     # Map string values to numerical values for 'prediction' column
@@ -108,7 +108,7 @@ def analyse_sentiment(text, pretrained_path):
     transformed_data = model.stages[2].transform(transformed_data)
     predictions = model.stages[-1].transform(transformed_data)
     end = time.time()
-    st.write(f"Time Taken: **{end - start:.2f}** seconds")
+    st.write(f"Time Taken: *{end - start:.2f}* seconds")
 
     prediction = predictions.selectExpr(
         "prediction",
