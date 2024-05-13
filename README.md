@@ -124,7 +124,7 @@ This screenshot shows the output of the consumer script. It processes each tweet
 
 This screenshot illustrates the storage of processed tweets and their corresponding sentiment predictions within a MongoDB database. It showcases the structured storage format, ensuring efficient retrieval and analysis.
 
-![Data Stored in MongoDB](<Add your image link here>)
+![Data Stored in MongoDB](https://i.imgur.com/3LvQKsP.png)
 
 ### Real-time Tweet Visualization
 
