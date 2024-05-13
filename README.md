@@ -5,17 +5,27 @@ This project analyzes real-time Twitter data to determine sentiment (positive, n
 ## Project Structure
 
 ```markdown
+.
 ├── Consumer
-│ └── Consumer.py
+│   ├── Consumer.py
+│   ├── Pretrained_LogisticRegression.pkl
+│   └── requirements.txt
 ├── Producer
-│ └── Dockerfile
-├── Webapp
-│ ├── MongoDB.py
-│ ├── main.py
-│ ├── Visualisation.py
-│ └── VisualisationTest.py
-├── .gitignore
-└── requirements.txt
+│   ├── Dockerfile
+│   ├── Producer.py
+│   ├── requirements.txt
+│   └── twitter_validation.csv
+└── WebApp
+    ├── __pycache__
+    ├── fonts
+    ├── images
+    ├── MongoDB.py
+    ├── TestSentiment.py
+    ├── Visualisation.py
+    ├── VisualisationTest.py
+    ├── main.py
+    └── requirements.txt
+
 ```
 
 
