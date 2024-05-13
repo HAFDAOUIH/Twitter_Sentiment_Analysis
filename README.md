@@ -4,6 +4,7 @@ This project analyzes real-time Twitter data to determine sentiment (positive, n
 
 ## Project Structure
 
+```markdown
 ├── Consumer
 │ └── Consumer.py
 ├── Producer
@@ -15,6 +16,7 @@ This project analyzes real-time Twitter data to determine sentiment (positive, n
 │ └── VisualisationTest.py
 ├── .gitignore
 └── requirements.txt
+'''
 
 
 **Important Note:** The `Producer.py` script and the `twitter_validation.csv` file are located within the `kafka1` Docker container and are accessed using Docker volumes. 
