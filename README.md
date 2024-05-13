@@ -2,6 +2,9 @@
 
 This project analyzes real-time Twitter data to determine sentiment (positive, negative, neutral) using Apache Kafka, Spark, and a pre-trained logistic regression model. The results are stored in a MongoDB database and visualized using a Streamlit web application.
 
+#### This diagram illustrates the project's architecture:
+
+![Project Architecture](Flow_chart.jpg)
 ## Project Structure
 
 ```markdown
