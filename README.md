@@ -118,7 +118,7 @@ The producer (running inside the kafka1 container) continuously streams Twitter 
 
 This screenshot shows the output of the consumer script. It processes each tweet, extracts relevant game information, predicts the sentiment, and displays the result.
 
-![Consumer Output](https://imgur.com/CY3QKOT)
+![Consumer Output](https://i.ibb.co/Zg643Hc/Screenshot-from-2024-05-13-19-40-26.png)
 
 ### Data Stored in MongoDB
 
