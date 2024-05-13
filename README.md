@@ -130,7 +130,8 @@ This screenshot illustrates the storage of processed tweets and their correspond
 
 This screenshot demonstrates the real-time visualization feature of the Streamlit web application. It offers a dynamic display of tweet data and their associated sentiment distribution, providing users with instant insights.
 
-![Real-time Tweet Visualization](https://i.imgur.com/wcGmkQj.png)(https://i.imgur.com/t5FuTZA.png)
+![Real-time Tweet Visualization](https://i.imgur.com/wcGmkQj.png)
+![Real-time Tweet Visualization Dashboard](https://i.imgur.com/t5FuTZA.png)
 
 
 ### User Testing
