@@ -2,6 +2,9 @@
 
 This project analyzes real-time Twitter data to determine sentiment (positive, negative, neutral) using Apache Kafka, Spark, and a pre-trained logistic regression model. The results are stored in a MongoDB database and visualized using a Streamlit web application.
 
+#### This diagram illustrates the project's architecture:
+
+![Project Architecture](Flow_chart.jpg)
 ## Project Structure
 
 ```markdown
@@ -43,7 +46,7 @@ This project analyzes real-time Twitter data to determine sentiment (positive, n
 
 1. **Clone the Repository:**
   
-  git clone https://github.com/YOUR_GITHUB_USERNAME/Twitter_Sentiment_Analysis.git
+  git clone https://github.com/HAFDAOUIH/Twitter_Sentiment_Analysis.git
   cd Twitter_Sentiment_Analysis
   
   #### Install Python Dependencies:
@@ -110,6 +113,33 @@ This project analyzes real-time Twitter data to determine sentiment (positive, n
   ### Usage
 
 The producer (running inside the kafka1 container) continuously streams Twitter data from the `twitter_validation.csv` file into a Kafka topic. The Spark consumer subscribes to the Kafka topic, analyzes tweet sentiment using a pre-trained Logistic Regression model, and stores the results in MongoDB. The Streamlit web app visualizes the sentiment analysis data retrieved from MongoDB.
+
+### Consumer Output
+
+This screenshot shows the output of the consumer script. It processes each tweet, extracts relevant game information, predicts the sentiment, and displays the result.
+
+![Consumer Output](https://i.ibb.co/Zg643Hc/Screenshot-from-2024-05-13-19-40-26.png)
+
+### Data Stored in MongoDB
+
+This screenshot illustrates the storage of processed tweets and their corresponding sentiment predictions within a MongoDB database. It showcases the structured storage format, ensuring efficient retrieval and analysis.
+
+![Data Stored in MongoDB](https://i.imgur.com/3LvQKsP.png)
+
+### Real-time Tweet Visualization
+
+This screenshot demonstrates the real-time visualization feature of the Streamlit web application. It offers a dynamic display of tweet data and their associated sentiment distribution, providing users with instant insights.
+
+![Real-time Tweet Visualization](https://i.imgur.com/wcGmkQj.png)
+![Real-time Tweet Visualization Dashboard](https://i.imgur.com/t5FuTZA.png)
+
+
+### User Testing
+
+This screenshot showcases the user testing interface of the application. Users can input their own tweets and receive sentiment predictions from the trained model, enabling interactive exploration of the sentiment analysis functionality.
+
+![User Testing](https://i.imgur.com/0bYaS6P.png)
+
 
 ### Configuration
 
