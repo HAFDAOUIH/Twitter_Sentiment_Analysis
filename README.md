@@ -43,15 +43,29 @@ This project analyzes real-time Twitter data to determine sentiment (positive, n
   
   #### Set Up Kafka and Zookeeper:
   
-  #### Start Zookeeper:
-  ```bash
-  docker run -d --name zookeeper -p 2181:2181 zookeeper:3.4.14
-  ```
-  
-  #### Start Kafka:
-  ```bash
-  docker run -d --name kafka -p 9092:9092 --link zookeeper:zookeeper wurstmeister/kafka:2.12-2.2.1
-  ```
+  **Set Up Kafka and Zookeeper using Docker Compose:**
+   * **Important:** Make sure you have a `docker-compose.yml` file (e.g., `zk-single-kafka-single.yml`) that defines your Kafka and Zookeeper services. 
+   * Start Kafka and Zookeeper in the background:
+     ```bash
+     docker-compose -f zk-single-kafka-single.yml up -d
+     ```
+   * Check if the services are running:
+     ```bash
+     docker-compose -f zk-single-kafka-single.yml ps
+     ```
+  **Create the Kafka Topic:**
+   * Access the `kafka1` container:
+     ```bash
+     docker exec -it kafka1 /bin/bash
+     ```
+   * Create the `twitter` topic: 
+     ```bash
+     kafka-topics --create --topic twitter --bootstrap-server localhost:9092
+     ```
+   * Verify the topic creation:
+     ```bash
+     kafka-topics --describe --topic twitter --bootstrap-server localhost:9092
+     ```
   
   #### Prepare the Kafka Container with Producer.py and Data:
    You'll need to copy Producer.py and twitter_validation.csv into your kafka1 Docker container.
